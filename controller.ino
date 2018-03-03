@@ -159,25 +159,16 @@ void setCatvController() {
 }
 
 void screenSaver () {
-  uint16_t c1, c2;
   static long last = 0;
-  static int n = 1;
-  const int rectX = 60, rextY = 80;
+  static int n = 0;
+  int length = 20;
 
-  if ((millis() - last) > 2000) {
+  if ((millis() - last) > 100) {
     last = millis();
-    if (n > 0) {
-      c1 = 0xffff, c2 = 0x0000;
-    } else {
-      c1 = 0x0000, c2 = 0xffff;
-    }
-    n = -n;
-
-    for (int x = 0; x < tft.width() / rectX; x++) {
-      c1 = ~c1, c2 = ~c2;
-      for (int y = 0; y < tft.height() / rextY; y++) {
-        tft.fillRect(x * rectX, y * rextY, rectX, rextY, (y % 2) ? c1 : c2);
-      }
+    tft.fillRect(random(tft.width() - length), random(tft.height() - length), length, length, 0x0000);
+    if (n++ > 500) {
+      tft.fillScreen(random(0xffff));
+      n = 0;
     }
   }
 }
@@ -185,8 +176,6 @@ void screenSaver () {
 void setup(void) {
   Serial.begin(115200);
 
-  buttons.deleteAllButtons();
-  buttons.setBgColor(0xffff);
   buttons.setFont(&FreeSans12pt7b);
   setTvController1();
   buttons.setScreenSaver(screenSaver, 300000);

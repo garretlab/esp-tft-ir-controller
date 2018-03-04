@@ -29,8 +29,8 @@ void setControllerCommon1() {
   buttons.deleteAllButtons();
   buttons.setBgColor(0xffff);
 
-  buttons.addButton(0, yp0, 32, 32, 60, 30, upArrow, 0x0000, 0xffff, NULL, 0, 0x0000, NULL, nec, 0x40bf, 1, 0x3a); // input down
-  buttons.addButton(192, yp0, 32, 32, 60, 30, downArrow, 0x0000, 0xffff, NULL, 0, 0x0000, NULL, nec, 0x40bf, 1, 0x0f); // input up
+  buttons.addButton(0, yp0, 32, 32, 60, 30, downArrow, 0x0000, 0xffff, NULL, 0, 0x0000, NULL, nec, 0x40bf, 1, 0x0f); // input up
+  buttons.addButton(192, yp0, 32, 32, 60, 30, upArrow, 0x0000, 0xffff, NULL, 0, 0x0000, NULL, nec, 0x40bf, 1, 0x3a); // input down
 }
 
 void setControllerCommon2() {
@@ -246,5 +246,3 @@ void setup(void) {
 void loop() {
   buttons.checkButtons();
 }
-
-

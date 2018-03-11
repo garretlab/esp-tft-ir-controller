@@ -241,6 +241,7 @@ void tftRmtClass::checkButtons() {
 
     if (screenSaverEntered) {
       screenSaverEntered = 0;
+      Serial.printf("Screensaver end\n");
       clearScreen();
       displayAllButtons();
       return;

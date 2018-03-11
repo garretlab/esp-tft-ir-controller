@@ -1,6 +1,5 @@
 #include "tftRmtClass.h"
 #include "Fonts/FreeSans12pt7b.h"
-#include <WiFi.h>
 
 const int stmpeCs = 25;  // to pin 8 of shield
 const int tftDc = 33;    // to pin 9
